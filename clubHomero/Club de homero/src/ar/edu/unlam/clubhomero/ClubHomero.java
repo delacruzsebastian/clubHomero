@@ -1,9 +1,6 @@
 package ar.edu.unlam.clubhomero;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 import java.util.TreeSet;
 
 public class ClubHomero{
@@ -16,21 +13,29 @@ public class ClubHomero{
 		
 													   }; 
 	
+	//public List<Cliente> mostrarClientesPorEdad(){
+	public TreeSet<Cliente> mostrarClientesPorEdad(){		
+		/*
+		List<Cliente> clienteOrdenadoEdad = new ArrayList<Cliente>(this.clientesClub);
+		
+		Collections.sort(clienteOrdenadoEdad, ordenadoPorEdad);
+		
+		return clienteOrdenadoEdad;
+		*/
+		TreeSet<Cliente> clientesOrdenados = new TreeSet<Cliente>(ordenadoPorEdad);
+		
+		if(clientesOrdenados.addAll(this.clientesClub))
+			return clientesOrdenados;
+		else
+			return new TreeSet<Cliente>();
+	}													   
+													   
 	public ClubHomero(){
 		this.clientesClub = new TreeSet<Cliente>();
 	}
 	
 	public Boolean agregarCliente(Cliente cliente){
 		return this.clientesClub.add(cliente);
-	}
-	
-	public List<Cliente> mostrarClientesPorEdad(){
-		
-		List<Cliente> clienteOrdenadoEdad = new ArrayList<Cliente>(this.clientesClub);
-		
-		Collections.sort(clienteOrdenadoEdad, ordenadoPorEdad);
-		
-		return clienteOrdenadoEdad;
 	}
 	
 	public TreeSet<Cliente> getClientesClub() {

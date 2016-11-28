@@ -1,8 +1,8 @@
 package ar.edu.unlam.clubhomero;
 
 import java.util.Iterator;
-import java.util.List;
 import java.util.SortedSet;
+import java.util.TreeSet;
 
 import junit.framework.Assert;
 
@@ -68,13 +68,19 @@ public class ClubHomeroTest{
 		miClub.agregarCliente(new Cliente("Marge", 35));
 		miClub.agregarCliente(new Cliente("Maggie", 0));
 		
-		List<Cliente> misClientes = miClub.mostrarClientesPorEdad();
+		/*List<Cliente> misClientes = miClub.mostrarClientesPorEdad();
 		
 		Iterator<Cliente> clienteIT = misClientes.iterator();
 		
 		while(clienteIT.hasNext()){
 			System.out.println(clienteIT.next().getNombre());
-		}
+		}*/
+		
+		TreeSet<Cliente> misClientes = miClub.mostrarClientesPorEdad();
+		 
+		Assert.assertEquals("Maggie", misClientes.first().getNombre());
+		//Dejo comentado el assert obteniendo el último elemento del TreeSet.		
+		//Assert.assertEquals("Homero", misClientes.last().getNombre());
 		
 	}		
 	
